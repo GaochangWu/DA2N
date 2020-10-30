@@ -19,7 +19,9 @@ The light field (LF) reconstruction is mainly confronted with two challenges, la
 
 ## Results
 ![Teaser Image](https://github.com/GaochangWu/DA2N/blob/main/imgs/Result1.png)
+Comparison of the results (× 16 upsampling) on the LFs from the ICME DSLF dataset [34] <br>
 ![Teaser Image](https://github.com/GaochangWu/DA2N/blob/main/imgs/Result2.png)
+Compar ison of the results (× 16 upsampling) on the LFs from the MPI Light Field Archive [38] <br>
 
 ## Code
 We provide a [demo IPython notebook](https://colab.research.google.com/github/tancik/fourier-feature-networks/blob/master/Demo.ipynb) as a simple reference for the core idea. The scripts used to generate the paper plots and tables are located in the [Experiments](https://github.com/tancik/fourier-feature-networks/tree/master/Experiments) directory.

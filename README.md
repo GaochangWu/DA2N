@@ -6,7 +6,9 @@
 [Lu Fang](http://luvision.net/)\*<sup>3</sup>,
 [Tianyou Chai](http://www.sapi.neu.edu.cn/)<sup>1</sup><br>
 
-<sup>1</sup>State Key Laboratory of Synthetical Automation for Process Industries, Northeastern University, <sup>2</sup>Department of Automation, Tsinghua University, <sup>3</sup>Tsinghua-Berkeley Shenzhen Institute <br>
+<sup>1</sup>State Key Laboratory of Synthetical Automation for Process Industries, Northeastern University <br> 
+<sup>2</sup>Department of Automation, Tsinghua University <br>
+<sup>3</sup>Tsinghua-Berkeley Shenzhen Institute <br>
 <sup>*</sup>denotes corresponding author
 
 

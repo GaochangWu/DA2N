@@ -24,9 +24,11 @@ Comparison of the results (x16 upsampling) on the LFs from the ICME DSLF dataset
 Compar ison of the results (x16 upsampling) on the LFs from the MPI Light Field Archive [38] <br>
 
 ## Note for Code
-1. The code for 3D light field (1D angular and 2D spatial) reconstruction is "main3d.py". Recommend using the model with upsampling scale \alpha_s=3 for x8 or x9 reconstruction, and the model with upsampling scale \alpha_s=4 for x16 reconstruction. <br>
+1. You should first upload your light fields to "./Datasets/". <br>
 
-2. The code for 4D light field reconstruction is "batch4d.py". <br>
+2. The code for 3D light field (1D angular and 2D spatial) reconstruction is "main3d.py". Recommend using the model with upsampling scale \alpha_s=3 for x8 or x9 reconstruction, and the model with upsampling scale \alpha_s=4 for x16 reconstruction. <br>
 
-3. Please cite our paper if it helps, thank you! <br>
+3. The code for 4D light field reconstruction is "batch4d.py". <br>
+
+4. Please cite our paper if it helps, thank you! <br>
 

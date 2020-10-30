@@ -14,7 +14,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # ----------------- Parameters setting -----------------------
 sceneName = 'Development_dataset_1'  # Development_dataset_3 Bikes FairyCollection LivingRoom Mannequin WorkShop
-sceneFile = '../Datasets/ICME/'  # ../Datasets/ICME/  ../Datasets/MPILF/
+sceneFile = './Datasets/ICME/'  # ../Datasets/ICME/  ../Datasets/MPILF/
 model_up_scale = 4  # MUST BE 3 or 4
 save_img = 1
 FLAG_RGB = 1

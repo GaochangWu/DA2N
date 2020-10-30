@@ -14,7 +14,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # ----------------- Parameters setting -----------------------
 sceneFile = 'Lytro/30scenes'  # 30scenes Reflective Occlusions
-scenePath = '../Datasets/' + sceneFile + '/'
+scenePath = './Datasets/' + sceneFile + '/'
 modelPath = "./Model/modelx3"
 results_path = 'Results/' + sceneFile + '/'
 utils.mkdir(results_path)

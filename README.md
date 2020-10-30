@@ -1,7 +1,7 @@
 # Revisiting Light Field Rendering with Deep Anti-Aliasing Neural Network
 ### [Project Page](https://gaochangwu.github.io/) | [Paper](https://gaochangwu.github.io/)
 
-[Gaochang Wu](https://gaochangwu.github.io/)\<sup>1</sup>,
+[Gaochang Wu](https://gaochangwu.github.io/)<sup>1</sup>,
 [Yebin Liu](http://www.liuyebin.com/)\*<sup>2</sup>,
 [Lu Fang](http://luvision.net/)\*<sup>3</sup>,
 [Tianyou Chai](http://www.sapi.neu.edu.cn/)<sup>1</sup><br>

@@ -1,5 +1,5 @@
 # Revisiting Light Field Rendering with Deep Anti-Aliasing Neural Network
-### [Project Page](https://gaochangwu.github.io/DA2N/DA2N.html) | [Paper](https://gaochangwu.github.io/)
+### [Project Page](https://gaochangwu.github.io/DA2N/DA2N.html) | [Paper](https://gaochangwu.github.io/DA2N/assets/DA2N.pdf)
 
 [Gaochang Wu](https://gaochangwu.github.io/)<sup>1</sup>,
 [Yebin Liu](http://www.liuyebin.com/)\*<sup>2</sup>,

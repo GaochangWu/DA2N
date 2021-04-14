@@ -18,7 +18,7 @@ sceneFile = './Datasets/ICME/'  # ../Datasets/ICME/  ../Datasets/MPILF/
 model_up_scale = 4  # MUST BE 3 or 4
 save_img = 1
 FLAG_RGB = 1
-down_scale = 16
+down_scale = 16  # Sample interval, also is reconstruction (upscale) fator.
 
 # ------------------------------------------------------------
 up_scale = down_scale

@@ -18,10 +18,10 @@ sceneFile = './Datasets/ICME/'  # ../Datasets/ICME/  ../Datasets/MPILF/
 model_up_scale = 4  # MUST BE 3 or 4
 save_img = 1
 FLAG_RGB = 1
-down_scale = 16  # Sample interval, also is reconstruction (upscale) fator.
+down_scale = 16  # Sample interval for downscaling
 
 # ------------------------------------------------------------
-up_scale = down_scale
+up_scale = down_scale  # Reconstruction (upscale) fator. For evaluation, reconstruction fator is equal to the sample interval.
 if model_up_scale == 3:
     from modelx3 import model   # modelx3 modelx4
     modelPath = "./Model/modelx3"

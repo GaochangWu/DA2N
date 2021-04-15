@@ -2,14 +2,13 @@
 ### [Project Page](https://gaochangwu.github.io/DA2N/DA2N.html) | [Paper](https://gaochangwu.github.io/DA2N/assets/DA2N.pdf)
 
 [Gaochang Wu](https://gaochangwu.github.io/)<sup>1</sup>,
-[Yebin Liu](http://www.liuyebin.com/)\*<sup>2</sup>,
-[Lu Fang](http://luvision.net/)\*<sup>3</sup>,
+[Yebin Liu](http://www.liuyebin.com/)<sup>2</sup>,
+[Lu Fang](http://luvision.net/)<sup>3</sup>,
 [Tianyou Chai](http://www.sapi.neu.edu.cn/)<sup>1</sup><br>
 
 <sup>1</sup>State Key Laboratory of Synthetical Automation for Process Industries, Northeastern University <br> 
 <sup>2</sup>Department of Automation, Tsinghua University <br>
 <sup>3</sup>Tsinghua-Berkeley Shenzhen Institute <br>
-<sup>*</sup>denotes corresponding author
 
 
 ## Abstract

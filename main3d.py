@@ -15,7 +15,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # ----------------- Parameters setting -----------------------
 sceneName = 'Development_dataset_1'  # Development_dataset_3 Bikes FairyCollection LivingRoom Mannequin WorkShop
 sceneFile = './Datasets/ICME/'  # ../Datasets/ICME/  ../Datasets/MPILF/
-model_up_scale = 4  # MUST BE 3 or 4
+model_up_scale = 4  # MUST BE 3 or 4. Recommend 3 for x9 reconstruction and 4 for x16 reconstruction.
 save_img = 1
 FLAG_RGB = 1
 down_scale = 16  # Sample interval for downscaling

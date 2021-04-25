@@ -8,7 +8,7 @@ import utils
 import glob
 import warnings
 warnings.filterwarnings("ignore")
-os.environ["CUDA_VISIBLE_DEVICES"] = '2'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 

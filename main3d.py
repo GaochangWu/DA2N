@@ -68,33 +68,29 @@ with open(logWritePath, 'a') as f:
             (sceneName, ang_in, ang_out))
 
 # ---------------- Model -------------------- #
-def slice_reconstruction(size, slice, ang_tar):
+def slice_reconstruction(wid, slice, ang_in, ang_tar):
     global slice_y
     with sess.as_default():
         slice = utils.rgb2ycbcr(slice)
         if FLAG_RGB:
-            slice_y = slice[:, :, :, 0:1]
-            slice_cb = slice[:, :, :, 1:2]
-            slice_cr = slice[:, :, :, 2:3]
+            slice = np.reshape(np.transpose(slice, [0, 3, 1, 2]), [-1, ang_in, wid, 1])
 
-            slice_y = sess.run(y_out, feed_dict={x: slice_y})
-            slice_cb = sess.run(y_out, feed_dict={x: slice_cb})
-            slice_cr = sess.run(y_out, feed_dict={x: slice_cr})
+            slice = sess.run(y_out, feed_dict={x: slice})
 
-            slice = np.concatenate((slice_y, slice_cb, slice_cr), axis=-1)
-            slice = tf.image.resize_bicubic(slice, [ang_tar, size])
+            slice = tf.image.resize_bicubic(slice, [ang_tar, wid])
             slice = sess.run(slice)
+            slice = np.transpose(np.reshape(slice, [-1, 3, ang_tar, wid]), [0, 2, 3, 1])
         else:
             slice_y = slice[:, :, :, 0:1]
 
             slice = tf.convert_to_tensor(slice)
-            slice = tf.image.resize_bicubic(slice, [ang_tar, size])
+            slice = tf.image.resize_bicubic(slice, [ang_tar, wid])
             slice = sess.run(slice)
 
             slice_y = sess.run(y_out, feed_dict={x: slice_y})
 
             slice_y = tf.convert_to_tensor(slice_y)
-            slice_y = tf.image.resize_bicubic(slice_y, [ang_tar, size])
+            slice_y = tf.image.resize_bicubic(slice_y, [ang_tar, wid])
             slice[:, :, :, 0:1] = sess.run(slice_y)
 
         slice = utils.ycbcr2rgb(slice)
@@ -142,7 +138,7 @@ for i_iter in range(num_iter):
         slice3D = lf_in[h_start:h_end, :, :, :]
         slice3D = np.transpose(slice3D, (0, 3, 1, 2))
 
-        slice3D = slice_reconstruction(wid, slice3D, ang_cur_out)
+        slice3D = slice_reconstruction(wid, slice3D, ang_cur_in, ang_cur_out)
 
         lf_cur[h_start:h_end, :, :, :] = np.transpose(slice3D, (0, 2, 3, 1))
     sess.close()

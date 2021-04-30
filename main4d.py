@@ -40,7 +40,6 @@ with open(log_batch_path, 'w') as f:
 
 def slice_reconstruction(wid, slice, ang_in, ang_tar):
     # ---------------- Model -------------------- #
-    global slice_y
     with sess.as_default():
         slice = utils.rgb2ycbcr(slice)
         if FLAG_RGB:

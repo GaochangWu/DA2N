@@ -69,7 +69,6 @@ with open(logWritePath, 'a') as f:
 
 # ---------------- Model -------------------- #
 def slice_reconstruction(wid, slice, ang_in, ang_tar):
-    global slice_y
     with sess.as_default():
         slice = utils.rgb2ycbcr(slice)
         if FLAG_RGB:

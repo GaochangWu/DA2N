@@ -36,6 +36,38 @@ lf_files = glob.glob(scenePath + '*.png')
 log_batch_path = results_path + '/Log.txt'
 with open(log_batch_path, 'w') as f:
         f.write("Dataset is %s.\n" % sceneFile)
+
+
+def slice_reconstruction(wid, slice, ang_in, ang_tar):
+    # ---------------- Model -------------------- #
+    global slice_y
+    with sess.as_default():
+        slice = utils.rgb2ycbcr(slice)
+        if FLAG_RGB:
+            slice = np.reshape(np.transpose(slice, [0, 3, 1, 2]), [-1, ang_in, wid, 1])
+
+            slice = sess.run(y_out, feed_dict={x: slice})
+
+            slice = tf.image.resize_bicubic(slice, [ang_tar, wid])
+            slice = sess.run(slice)
+            slice = np.transpose(np.reshape(slice, [-1, 3, ang_tar, wid]), [0, 2, 3, 1])
+        else:
+            slice_p = slice[:, :, :, 0:1]
+
+            slice = tf.convert_to_tensor(slice)
+            slice = tf.image.resize_bicubic(slice, [ang_out, wid])
+            slice = sess.run(slice)
+
+            slice_y = sess.run(y_out, feed_dict={x: slice_p})
+
+            slice_y = tf.convert_to_tensor(slice_y)
+            slice_y = tf.image.resize_bicubic(slice_y, [ang_out, wid])
+            slice[:, :, :, 0:1] = sess.run(slice_y)
+        slice = utils.ycbcr2rgb(slice)
+        slice = np.minimum(np.maximum(slice, 0), 1)
+    return slice
+
+
 # -------------------------------------------------------------------
 psnr_bacth = [0 for _ in range(len(lf_files))]
 ssim_bacth = [0 for _ in range(len(lf_files))]
@@ -57,42 +89,6 @@ for i in range(0, len(lf_files)):
     with open(log_path, 'w') as f:
         f.write("Input (scene name: %s) is a %d X %d light field, extracted start from the %d th view. The output will "
                 "be a %d X %d light field.\n" % (sceneName, ang_in, ang_in, ang_start, ang_out, ang_out))
-
-
-    def slice_reconstruction(size, slice, ang_tar):
-        # ---------------- Model -------------------- #
-        global slice_y
-        with sess.as_default():
-            slice_ycbcr = utils.rgb2ycbcr(slice)
-            if FLAG_RGB:
-                slice_y = slice_ycbcr[:, :, :, 0:1]
-                slice_cb = slice_ycbcr[:, :, :, 1:2]
-                slice_cr = slice_ycbcr[:, :, :, 2:3]
-
-                slice_y = sess.run(y_out, feed_dict={x: slice_y})
-                slice_cb = sess.run(y_out, feed_dict={x: slice_cb})
-                slice_cr = sess.run(y_out, feed_dict={x: slice_cr})
-
-                slice_ycbcr = np.concatenate((slice_y, slice_cb, slice_cr), axis=-1)
-                slice_ycbcr = tf.convert_to_tensor(slice_ycbcr)
-                slice_ycbcr = tf.image.resize_bicubic(slice_ycbcr, [ang_tar, size])
-                slice_ycbcr = sess.run(slice_ycbcr)
-            else:
-                slice_p = slice_ycbcr[:, :, :, 0:1]
-
-                slice_ycbcr = tf.convert_to_tensor(slice_ycbcr)
-                slice_ycbcr = tf.image.resize_bicubic(slice_ycbcr, [ang_out, size])
-                slice_ycbcr = sess.run(slice_ycbcr)
-
-                slice_y = sess.run(y_out, feed_dict={x: slice_p})
-
-                slice_y = tf.convert_to_tensor(slice_y)
-                slice_y = tf.image.resize_bicubic(slice_y, [ang_out, size])
-                slice_ycbcr[:, :, :, 0:1] = sess.run(slice_y)
-            slice = utils.ycbcr2rgb(slice_ycbcr)
-            slice = np.minimum(np.maximum(slice, 0), 1)
-        return slice
-
 
     # -------------- Column reconstruction -----------------
     start1 = time.clock()
@@ -123,7 +119,7 @@ for i in range(0, len(lf_files)):
                 saver.restore(sess, modelPath)
 
             lf_in = np.transpose(lf_in, (0, 3, 1, 2))
-            lf_in = slice_reconstruction(wid, lf_in, ang_cur_out)
+            lf_in = slice_reconstruction(wid, lf_in, ang_cur_in, ang_cur_out)
             lf_in = np.transpose(lf_in, (0, 2, 3, 1))
             ang_cur_in = ang_cur_out
 
@@ -163,7 +159,7 @@ for i in range(0, len(lf_files)):
                 saver.restore(sess, modelPath)
 
             lf_in = np.transpose(lf_in, (1, 3, 0, 2))
-            lf_in = slice_reconstruction(hei, lf_in, ang_cur_out)
+            lf_in = slice_reconstruction(hei, lf_in, ang_cur_in, ang_cur_out)
             lf_in = np.transpose(lf_in, (2, 0, 3, 1))
             ang_cur_in = ang_cur_out
 

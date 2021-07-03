@@ -4,7 +4,7 @@ import numpy as np
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 from modelx3 import model
-from model_ae2 import encoder
+from model_ae import encoder
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import utils
@@ -153,7 +153,7 @@ with tf.Session() as sess:
     saver = tf.train.Saver()
     try:
         saver_ae = tf.train.Saver(var_list=vars_ae)
-        saver_ae.restore(sess, opt.model_ae_load_path)
+        saver_ae.restore(sess, model_ae_load_path)
         saver_shear = tf.train.Saver(var_list=vars_shear)
         saver_shear.restore(sess, model_load_path)
     except:

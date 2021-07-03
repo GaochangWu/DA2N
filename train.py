@@ -7,7 +7,6 @@ from modelx3 import model
 from model_ae2 import encoder
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-import warnings
 import utils
     
 

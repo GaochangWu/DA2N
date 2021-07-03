@@ -9,6 +9,15 @@ from functools import reduce
 from operator import mul
 
 
+def load_h5_data(file):
+    with h5py.File(file, 'r') as hf:
+        data = np.array(hf.get('data'))
+        label = np.array(hf.get('label'))
+        data = np.transpose(data, (0, 3, 2, 1))
+        label = np.transpose(label, (0, 3, 2, 1))
+    return data, label
+
+
 def get_num_params(name=None):
     num_params = 0
     for variable in tf.trainable_variables():

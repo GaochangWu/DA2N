@@ -8,7 +8,7 @@ from model_ae2 import encoder
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import warnings
-from get_num_params import get_num_params
+import utils
 
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore", category=FutureWarning)
@@ -81,7 +81,7 @@ loss_style = loss1 + loss2 + loss3 + loss4
 loss = loss_mae + loss_style
 
 # ---------------- Setting optimizer -------------------- #
-num_params = get_num_params('SR') + get_num_params('Blender')
+num_params = utils.get_num_params('SR') + utils.get_num_params('Blender')
 train_vars = tf.trainable_variables()
 vars_Reconstructor = [var for var in train_vars if var.name.startswith('SR')]
 vars_Blender = [var for var in train_vars if var.name.startswith('Blender')]

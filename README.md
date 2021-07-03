@@ -35,5 +35,7 @@ Compar ison of the results (x16 upsampling) on the LFs from the MPI Light Field 
 
 6. Please prepare your dataset in the ".h5" format with shape batch (examples) x channels x width x angular. <br>
 
-7. Please cite our paper if it helps, thank you! <br>
+7. "Model_ae" is the encoder part (of the autoencoder) for computing the style loss.
+
+8. Please cite our paper if it helps, thank you! <br>
 

@@ -5,6 +5,17 @@ from matplotlib import pyplot as plt
 from skimage import color
 import tensorflow as tf
 from scipy.interpolate import interp2d
+from functools import reduce
+from operator import mul
+
+
+def get_num_params(name=None):
+    num_params = 0
+    for variable in tf.trainable_variables():
+        if variable.name.startswith(name):
+            shape = variable.get_shape()
+            num_params += reduce(mul, [dim.value for dim in shape], 1)
+    return num_params
 
 
 def mkdir(path):

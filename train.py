@@ -9,10 +9,7 @@ from model_ae2 import encoder
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import warnings
 import utils
-
-with warnings.catch_warnings():
-    warnings.filterwarnings("ignore", category=FutureWarning)
-    from loadH5Data import read_data
+    
 
 # ----------------Parameters setting-------------------- #
 parser = argparse.ArgumentParser()
@@ -37,8 +34,8 @@ log_path = "./Model/Log_" + opt.model_name + ".txt"
 model_ae_load_path = './Model/' + opt.model_name_ae
 
 # ---------------- Load training data -------------------- #
-train_label, _ = read_data(opt.train_data_path)
-test_label, _ = read_data(opt.test_data_path)
+train_label, _ = utils.load_h5_data(opt.train_data_path)
+test_label, _ = utils.load_h5_data(opt.test_data_path)
 
 train_num, sizeA, sizeW, _ = train_label.shape
 sizeA_in = (sizeA - 1) // opt.up_scale + 1

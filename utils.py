@@ -7,6 +7,7 @@ import tensorflow as tf
 from scipy.interpolate import interp2d
 from functools import reduce
 from operator import mul
+import h5py
 
 
 def load_h5_data(file):

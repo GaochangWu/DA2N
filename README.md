@@ -31,5 +31,7 @@ Compar ison of the results (x16 upsampling) on the LFs from the MPI Light Field 
 
 4. The code for 4D light field reconstruction is "main4d.py". <br>
 
+5. You can train your own network using "train.py". But you should prepare your own training and testing datasets in "./TrainData/" <br>
+
 5. Please cite our paper if it helps, thank you! <br>
 

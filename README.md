@@ -20,7 +20,7 @@ The light field (LF) reconstruction is mainly confronted with two challenges, la
 ![Teaser Image](https://github.com/GaochangWu/DA2N/blob/main/imgs/Result1.png) <br>
 Comparison of the results (x16 upsampling) on the LFs from the ICME DSLF dataset [34] <br>
 ![Teaser Image](https://github.com/GaochangWu/DA2N/blob/main/imgs/Result2.png) <br>
-Compar ison of the results (x16 upsampling) on the LFs from the MPI Light Field Archive [38] <br>
+Comparison of the results (x16 upsampling) on the LFs from the MPI Light Field Archive [38] <br>
 
 ## Note for Code
 1. Environment -Python 3.7.4, tensorflow-gpu==1.13.1 <br>

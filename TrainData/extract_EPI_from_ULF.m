@@ -13,7 +13,7 @@ scene(10).name='dragon'; scene(10).border = [0,0,0,0];
 scene(11).name='basket'; scene(11).border = [9,9,18,18];
 
 folder = '..\Datasets\igl_ULF\';  % Your Unstructured LFs' path
-savepath = '.\FineTuneData\';
+savepath = '.\FineTuneEPIs\';
 stride_hei = 31;
 stride_ang = 400;
 ang_Res4EPI = 600;    % Setting angular resolution of extracted EPIs

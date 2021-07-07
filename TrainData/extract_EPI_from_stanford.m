@@ -14,7 +14,7 @@ scene(11).name='Truck'; scene(11).border = [32,142,80,80]; scene(11).disp = [0, 
 
 
 folder = '..\Datasets\LFdata\Stanford\';  % Your Stanford LF Archive's path
-savepath = '.\StanfordEPI\';
+savepath = '.\StanfordEPIs\';
 downscale = 1;
 stride_spa = 16;
 ang_LF_original = 17;

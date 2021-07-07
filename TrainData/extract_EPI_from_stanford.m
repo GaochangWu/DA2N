@@ -13,7 +13,7 @@ scene(10).name='Treasure Chest'; scene(10).border = [90,132,180,40]; scene(10).d
 scene(11).name='Truck'; scene(11).border = [32,142,80,80]; scene(11).disp = [0, 1];
 
 
-folder = 'H:\Datasets\LFdata\Stanford\';  % Your Stanford LF Archive's path
+folder = '..\Datasets\LFdata\Stanford\';  % Your Stanford LF Archive's path
 savepath = '.\StanfordEPI\';
 downscale = 1;
 stride_spa = 16;

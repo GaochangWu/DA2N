@@ -12,7 +12,7 @@ scene(9).name='ship'; scene(9).border = [0,0,0,0];
 scene(10).name='dragon'; scene(10).border = [0,0,0,0];
 scene(11).name='basket'; scene(11).border = [9,9,18,18];
 
-folder = 'H:\Datasets\igl_ULF\';  % Your Unstructured LFs' path
+folder = '..\Datasets\igl_ULF\';  % Your Unstructured LFs' path
 savepath = '.\FineTuneData\';
 stride_hei = 31;
 stride_ang = 400;
